@@ -9,9 +9,16 @@ import {
   FaTimesCircle,
 } from "react-icons/fa";
 
-const ProfileCard = ({ workerProfile }) => {
+const ProfileCard = ({ workerProfile, background }) => {
   return (
-    <div className="contactDetails">
+    <div
+      className="contactDetails"
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+    >
       <h2 className="closeIcon">
         <span className="closeIcon" data-dismiss="modal">
           <FaTimesCircle size={24} />

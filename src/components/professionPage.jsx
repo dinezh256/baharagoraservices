@@ -2,44 +2,17 @@ import React, { useState } from "react";
 import { FaAddressBook, FaArrowLeft, FaUpload } from "react-icons/fa";
 import { Helmet } from "react-helmet";
 import { HashLink as Link } from "react-router-hash-link";
-import API from "./apiCall";
+import dataAPI from "./apiCall";
 import ProfileCard from "./profileCard";
-import Carpenter from "../images/carpenter.webp";
-import Electrician from "../images/electrician.webp";
-import Mason from "../images/mason.webp";
-import Mechanic from "../images/mechanic.webp";
-import Plumber from "../images/plumber.webp";
-import Painter from "../images/painter.webp";
-import Cleaner from "../images/cleaner.webp";
-import logo from "../images/logo192.png";
 import Footer from "./footer";
+import Loader from "./loader";
 
-const ProfessionPage = ({ professionName }) => {
-  let data = API();
+const ProfessionPage = ({ professionName, image, isLoaded, cardBG }) => {
+  const { professionData } = dataAPI();
 
   let finalData = [];
 
-  const professionImages = {
-    carpenter: Carpenter,
-    electrician: Electrician,
-    mason: Mason,
-    mechanic: Mechanic,
-    plumber: Plumber,
-    painter: Painter,
-    cleaner: Cleaner,
-  };
-
-  const names = {
-    carpenter: "Carpenter",
-    electrician: "Electrician",
-    mason: "Mason",
-    mechanic: "Mechanic",
-    plumber: "Plumber",
-    painter: "Painter",
-    cleaner: "Cleaner",
-  };
-
-  if (data) finalData = data[professionName];
+  if (professionData) finalData = professionData[professionName];
 
   const [profileCard, setProfileCard] = useState("");
 
@@ -47,12 +20,12 @@ const ProfessionPage = ({ professionName }) => {
     if (item) setProfileCard(item);
   };
 
-  if (finalData.length !== 0) {
+  if (finalData.length !== 0 && isLoaded) {
     return (
       <div className="professionPage">
         <Helmet>
           <title className="helmetTitle">
-            {names[professionName]} - Baharagora Services
+            {professionName} - Baharagora Services
           </title>
           <meta
             name="description"
@@ -61,11 +34,11 @@ const ProfessionPage = ({ professionName }) => {
         </Helmet>
         <div className="row">
           <div className="col-md professionAvatar">
-            <ProfessionImg sourceImage={professionImages[professionName]} />
+            <ProfessionImg sourceImage={image} />
             <ProfessionName name={professionName} />
           </div>
           <div className="col-md tableContent">
-            <div className="mainTable fadeIn" style={{ animationDelay: "2s" }}>
+            <div className="mainTable fadeIn" style={{ animationDelay: "1s" }}>
               <div className="hintText">
                 <h6>
                   <FaAddressBook size={20} className="colorChange" /> Shows all
@@ -142,7 +115,10 @@ const ProfessionPage = ({ professionName }) => {
             <div className="modal-dialog modal-dialog-centered" role="document">
               <div className="modal-content">
                 <div className="modal-body">
-                  <ProfileCard workerProfile={profileCard} />
+                  <ProfileCard
+                    workerProfile={profileCard}
+                    background={cardBG}
+                  />
                 </div>
               </div>
             </div>
@@ -152,18 +128,14 @@ const ProfessionPage = ({ professionName }) => {
       </div>
     );
   } else {
-    return (
-      <div className="loader">
-        <img className="spinLogo" src={logo} alt="logo" />
-      </div>
-    );
+    return <Loader />;
   }
 };
 
 export default ProfessionPage;
 
 const ProfessionImg = ({ sourceImage }) => {
-  return <img src={sourceImage} alt="carpenter" className="carpenter" />;
+  return <img src={sourceImage} alt="profession" className="carpenter" />;
 };
 
 const ProfessionName = ({ name }) => {

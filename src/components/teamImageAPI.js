@@ -1,8 +1,8 @@
 import firebase from "firebase";
 import { useState, useEffect } from "react";
 
-export default function API() {
-  const [professionData, setProfessionData] = useState("");
+export default function TeamImageAPI() {
+  const [imagesData, setImagesData] = useState({});
 
   useEffect(() => {
     const config = {
@@ -14,11 +14,11 @@ export default function API() {
 
     firebase.apps.length ? firebase.app() : firebase.initializeApp(config);
 
-    const dataRef = firebase.database().ref("main");
-    dataRef.on("value", (snapshot) => {
-      setProfessionData(snapshot.val());
+    const imagesRef = firebase.database().ref("images/aboutPage");
+    imagesRef.on("value", (snapshot) => {
+      setImagesData(snapshot.val());
     });
   }, []);
 
-  return { professionData };
+  return imagesData;
 }
