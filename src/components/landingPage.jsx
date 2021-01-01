@@ -188,26 +188,6 @@ const LandingPage = () => {
                   </div>
                 </Link>
               </ScrollAnimation>
-              <ScrollAnimation
-                animateIn="animate__bounceIn"
-                className="col"
-                delay="150"
-              >
-                <Link to="/cleaner">
-                  <div>
-                    <img
-                      src={images.sweep}
-                      alt="profImg7"
-                      className="professionIcon"
-                    />
-                    <h6 className="professionBtn">
-                      <span>
-                        <Link to="/cleaner">cleaner</Link>
-                      </span>
-                    </h6>
-                  </div>
-                </Link>
-              </ScrollAnimation>
             </div>
           </div>
           <div className="w-100"></div>
