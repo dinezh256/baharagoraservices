@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "./footer";
-import Loader from "./loader";
+import Loader from "../common/loader";
 
 const NotFound = ({ image, isLoaded }) => {
   if (isLoaded)

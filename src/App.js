@@ -7,8 +7,8 @@ import {
 } from "react-router-dom";
 import ReactGa from "react-ga";
 import NavBar from "./components/navbar";
-import TeamImageAPI from "./components/teamImageAPI";
-import ProfessionPageImagesAPI from "./components/professionImage";
+import TeamImageAPI from "./API/teamImageAPI";
+import ProfessionPageImagesAPI from "./API/professionImage";
 import "./App.scss";
 
 const LandingPage = lazy(() => import("./components/landingPage"));

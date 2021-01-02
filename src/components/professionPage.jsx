@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { FaAddressBook, FaArrowLeft, FaUpload } from "react-icons/fa";
 import { Helmet } from "react-helmet";
 import { HashLink as Link } from "react-router-hash-link";
-import dataAPI from "./apiCall";
+import dataAPI from "../API/apiCall";
 import ProfileCard from "./profileCard";
 import Footer from "./footer";
-import Loader from "./loader";
+import Loader from "../common/loader";
 
 const ProfessionPage = ({ professionName, image, isLoaded, cardBG }) => {
   const { professionData } = dataAPI();

@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "./footer";
-import Loader from "./loader";
+import Loader from "../common/loader";
 
 const About = ({ image, isLoaded }) => {
   if (isLoaded)

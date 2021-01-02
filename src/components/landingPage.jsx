@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { FiSearch, FiMessageCircle, FiClock } from "react-icons/fi";
 import ScrollAnimation from "react-animate-on-scroll";
-import LandingPageImagesAPI from "./landingPageAPI";
+import LandingPageImagesAPI from "../API/landingPageAPI";
 import "animate.css/animate.min.css";
 import Footer from "./footer";
 
