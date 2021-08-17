@@ -6,6 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import ReactGa from "react-ga";
+import Pushy from 'pushy-sdk-web';
 import NavBar from "./components/navbar";
 import TeamImageAPI from "./API/teamImageAPI";
 import ProfessionPageImagesAPI from "./API/professionImage";
@@ -47,6 +48,16 @@ function App() {
     "mechanic",
     "electrician",
   ];
+
+  useEffect(() => {
+    Pushy.register({ appId: '611bd93e47e8eaed2e043844' }).then(function (deviceToken) {
+      console.log('Pushy device token: ' + deviceToken);
+  
+     
+  }).catch(function (err) {
+      console.log(err);
+  });
+  }, [])
   return (
     <div className="App">
       <Router history={history}>

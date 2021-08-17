@@ -10,6 +10,7 @@
     "bootstrap": "^4.5.2",
     "firebase": "^7.22.0",
     "node-sass": "^4.14.1",
+    "pushy-sdk-web": "^1.0.8",
     "react": "^16.13.1",
     "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^16.13.1",
@@ -22,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "CI=false GENERATE_SOURCEMAP=false react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
