@@ -61,8 +61,10 @@ function App() {
 
       alert("Received notification: " + message);
     });
+
+    console.log({ env: process.env.NODE_ENV });
   }, []);
-  
+
   return (
     <div className="App">
       <Router history={history}>
