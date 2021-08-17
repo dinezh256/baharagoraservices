@@ -57,6 +57,17 @@ function App() {
   }).catch(function (err) {
       console.log(err);
   });
+
+  Pushy.setNotificationListener(function (data) {
+    // Print notification payload data
+    console.log('Received notification: ' + JSON.stringify(data));
+
+    // Attempt to extract the "message" property from the payload: {"message":"Hello World!"}
+    let message = data.message || 'Test notification';
+
+    // Display an alert with message sent from server
+    alert('Received notification: ' + message);
+});
   }, [])
   return (
     <div className="App">
