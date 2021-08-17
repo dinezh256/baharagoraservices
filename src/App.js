@@ -6,7 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import ReactGa from "react-ga";
-import Pushy from 'pushy-sdk-web';
+import Pushy from "pushy-sdk-web";
 import NavBar from "./components/navbar";
 import TeamImageAPI from "./API/teamImageAPI";
 import ProfessionPageImagesAPI from "./API/professionImage";
@@ -50,25 +50,19 @@ function App() {
   ];
 
   useEffect(() => {
-    Pushy.register({ appId: '611bd93e47e8eaed2e043844' }).then(function (deviceToken) {
-      console.log('Pushy device token: ' + deviceToken);
+    Pushy.register({ appId: "611bd93e47e8eaed2e043844" })
+      .then((deviceToken) => console.log("Pushy device token: " + deviceToken))
+      .catch((err) => console.log(err));
+
+    Pushy.setNotificationListener((data) => {
+      console.log("Received notification: " + JSON.stringify(data));
+
+      let message = data.message || "Test notification";
+
+      alert("Received notification: " + message);
+    });
+  }, []);
   
-     
-  }).catch(function (err) {
-      console.log(err);
-  });
-
-  Pushy.setNotificationListener(function (data) {
-    // Print notification payload data
-    console.log('Received notification: ' + JSON.stringify(data));
-
-    // Attempt to extract the "message" property from the payload: {"message":"Hello World!"}
-    let message = data.message || 'Test notification';
-
-    // Display an alert with message sent from server
-    alert('Received notification: ' + message);
-});
-  }, [])
   return (
     <div className="App">
       <Router history={history}>
