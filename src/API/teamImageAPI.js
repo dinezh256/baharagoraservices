@@ -14,6 +14,8 @@ export default function TeamImageAPI() {
 
     firebase.apps.length ? firebase.app() : firebase.initializeApp(config);
 
+    
+
     const imagesRef = firebase.database().ref("images/aboutPage");
     imagesRef.on("value", (snapshot) => {
       setImagesData(snapshot.val());
