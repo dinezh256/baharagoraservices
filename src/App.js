@@ -6,9 +6,9 @@ import TeamImageAPI from "./API/teamImageAPI";
 import ProfessionPageImagesAPI from "./API/professionImage";
 import "./App.scss";
 
-const LandingPage = lazy(() => import("./components/landingPage"));
 const About = lazy(() => import("./components/about"));
 const NotFound = lazy(() => import("./components/notFound"));
+const LandingPage = lazy(() => import("./components/landingPage"));
 const ProfessionPage = lazy(() => import("./components/professionPage"));
 
 function App() {

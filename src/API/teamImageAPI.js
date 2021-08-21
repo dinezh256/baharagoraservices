@@ -1,5 +1,5 @@
-import firebase from "firebase";
 import { useState, useEffect } from "react";
+import firebase from "firebase";
 
 export default function TeamImageAPI() {
   const [imagesData, setImagesData] = useState({});
@@ -13,8 +13,6 @@ export default function TeamImageAPI() {
     };
 
     firebase.apps.length ? firebase.app() : firebase.initializeApp(config);
-
-    
 
     const imagesRef = firebase.database().ref("images/aboutPage");
     imagesRef.on("value", (snapshot) => {

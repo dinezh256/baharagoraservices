@@ -1,5 +1,5 @@
-import firebase from "firebase";
 import { useState, useEffect } from "react";
+import firebase from "firebase/app";
 
 export default function ProfessionPageImagesAPI() {
   const [imagesData, setImagesData] = useState({});
