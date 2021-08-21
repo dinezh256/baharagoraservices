@@ -1,4 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
-Sitemap: https://baharagoraservices.web.app/sitemap.xml
+Sitemap: https://www.baharagoraservices.com/sitemap.xml
 User-agent: *
 Disallow:
