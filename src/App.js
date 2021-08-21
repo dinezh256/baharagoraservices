@@ -34,13 +34,13 @@ function App() {
   }, [miscImages, professionImages]);
 
   const professions = [
-    "carpenter",
-    "cleaner",
-    "mason",
-    "painter",
-    "plumber",
-    "mechanic",
-    "electrician",
+    "Carpenter",
+    "Cleaner",
+    "Mason",
+    "Painter",
+    "Plumber",
+    "Mechanic",
+    "Electrician",
   ];
 
   // useEffect(() => {
@@ -78,7 +78,7 @@ function App() {
                 component={() => (
                   <ProfessionPage
                     professionName={item}
-                    image={professionImages[item]}
+                    image={professionImages[item.toLowerCase()]}
                     cardBG={professionImages["wavyBackground"]}
                     isLoaded={professionsImageLoaded}
                   />

@@ -12,7 +12,7 @@ const ProfessionPage = ({ professionName, image, isLoaded, cardBG }) => {
 
   let finalData = [];
 
-  if (professionData) finalData = professionData[professionName];
+  if (professionData) finalData = professionData[professionName.toLowerCase()];
 
   const [profileCard, setProfileCard] = useState("");
 
@@ -35,7 +35,7 @@ const ProfessionPage = ({ professionName, image, isLoaded, cardBG }) => {
         <div className="row">
           <div className="col-md professionAvatar">
             <ProfessionImg sourceImage={image} />
-            <ProfessionName name={professionName} />
+            <ProfessionName name={professionName.toLowerCase()} />
           </div>
           <div className="col-md tableContent">
             <div className="mainTable fadeIn" style={{ animationDelay: "1s" }}>
