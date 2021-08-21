@@ -1,10 +1,5 @@
 import React, { useEffect, useState, Suspense, lazy } from "react";
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import ReactGa from "react-ga";
 import NavBar from "./components/navbar";
 import TeamImageAPI from "./API/teamImageAPI";
@@ -53,9 +48,6 @@ function App() {
   //     .then((deviceToken) => console.log("Pushy device token: " + deviceToken))
   //     .catch((err) => console.log(err));
 
-    
-
-    
   // }, []);
 
   // useEffect(() => {
@@ -70,7 +62,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router history={history}>
+      <BrowserRouter history={history}>
         <NavBar />
         <Suspense fallback={<div />}>
           <Switch>
@@ -103,7 +95,7 @@ function App() {
             <Redirect to="/notfound" />
           </Switch>
         </Suspense>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }
