@@ -6,7 +6,6 @@ import {
   Switch,
 } from "react-router-dom";
 import ReactGa from "react-ga";
-import Pushy from "pushy-sdk-web";
 import NavBar from "./components/navbar";
 import TeamImageAPI from "./API/teamImageAPI";
 import ProfessionPageImagesAPI from "./API/professionImage";
@@ -49,21 +48,25 @@ function App() {
     "electrician",
   ];
 
-  useEffect(() => {
-    Pushy.register({ appId: "611bd93e47e8eaed2e043844" })
-      .then((deviceToken) => console.log("Pushy device token: " + deviceToken))
-      .catch((err) => console.log(err));
+  // useEffect(() => {
+  //   Pushy.register({ appId: "611bd93e47e8eaed2e043844" })
+  //     .then((deviceToken) => console.log("Pushy device token: " + deviceToken))
+  //     .catch((err) => console.log(err));
 
-    Pushy.setNotificationListener((data) => {
-      console.log("Received notification: " + JSON.stringify(data));
+    
 
-      let message = data.message || "Test notification";
+    
+  // }, []);
 
-      alert("Received notification: " + message);
-    });
+  // useEffect(() => {
+  //   Pushy.setNotificationListener((data) => {
+  //     console.log("Received notification: " + JSON.stringify(data));
 
-    console.log({ env: process.env.NODE_ENV });
-  }, []);
+  //     let message = data.message || "Test notification";
+
+  //     console.log("Received notification: " + message);
+  //   });
+  // }, [])
 
   return (
     <div className="App">
